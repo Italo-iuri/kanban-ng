@@ -1,49 +1,41 @@
 <nav class="navbar navbar-expand-lg navbar-ligh" style="background-color: #4FFBDF;">
-  <a class="navbar-brand" href="#">Navbar</a>
+  <a class="navbar-brand mx-4" href="#">Navbar</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
   <div class="collapse navbar-collapse" id="navbarNav">
     <ul class="navbar-nav">
       <li class="nav-item active">
-        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+        <a class="nav-link" href="#">Home</a>
       </li>
-      <li class="nav-item">
+      <!-- <li class="nav-item">
         <a class="nav-link" href="#">Features</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="#">Pricing</a>
-      </li>
+      </li> -->
     </ul>
   </div>
 </nav>
 
 <div class="container">
   <div class="row">
-    <div class="blocks d-flex justify-content-around">
-      <div class="block">
+    <div class="blocks" cdkDropListGroup>
+
+      <div class="block" *ngFor="let column of board.columns">
+
         <div class="text-block">
-          <p>Ideias</p>
+          <p>{{ column.name }}</p>
         </div>
-        <div class="tasks-container">
-          <div class="task">
-            First Ideia
+
+        <div class="tasks-container"
+          cdkDropList
+          [cdkDropListData]="column.tasks"
+          (cdkDropListDropped)="drop($event)">
+          <div class="task" *ngFor="let item of column.tasks" cdkDrag>
+            {{ item }}
           </div>
-        </div>
-      </div>
-      <div class="block">
-        <div class="text-block">
-          <p>Research</p>
-        </div>
-      </div>
-      <div class="block">
-        <div class="text-block">
-          <p>To do</p>
-        </div>
-      </div>
-      <div class="block">
-        <div class="text-block">
-          <p>Done</p>
+
         </div>
       </div>
 
