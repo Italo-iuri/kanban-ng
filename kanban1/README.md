@@ -1,5 +1,7 @@
 # Kanban1
 
+To check it out ctrl + click <a href = "https://italo-iuri.github.io/kanban-ng/"> here </a>!
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.2.6.
 
 ## Development server
